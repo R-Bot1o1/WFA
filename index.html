@@ -965,6 +965,47 @@ for (var attr in meta) {
 
     </li></ul>
 </div>
+<button id="copyButton" class="btn custom-button" style="margin: 10px;">
+    <span class="button-text">Copy CA</span>
+</button>
+
+<script>
+document.getElementById('copyButton').addEventListener('click', function() {
+    const textToCopy = 'WFA COIN SOON'; // Replace with your actual CA number
+    navigator.clipboard.writeText(textToCopy).then(function() {
+        // Temporarily change button text to show success
+        const button = document.getElementById('copyButton');
+        const originalText = button.innerHTML;
+        button.innerHTML = '<span class="button-text">Copied!</span>';
+        setTimeout(function() {
+            button.innerHTML = originalText;
+        }, 2000);
+    }).catch(function(err) {
+        console.error('Failed to copy text: ', err);
+    });
+});
+</script>
+
+<style>
+.custom-button {
+    background-color: #007bff; /* Match your website's color scheme */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+    background-color: #0056b3;
+}
+
+.button-text {
+    font-family: inherit;
+    font-size: 14px;
+}
+</style>
 </div>
 <div class="header-item header-item--icons"><div class="site-nav site-nav--icons">
   <div class="site-nav__icons">
